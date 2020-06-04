@@ -6,7 +6,7 @@ using System;
 
 namespace CSharpTest {
 
-    class Node {
+    public class Node {
 
       private int data;
 

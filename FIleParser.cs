@@ -18,32 +18,6 @@ namespace CSharpTest {
       this.filePath = filePath;
     } 
 
-  
-    /*
-      * wrapper around this classes GetEnumerator class
-      *
-      * @return    IEnumerator<string>
-    */
-    System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator() {
-      return this.GetEnumerator();
-    }
-
-
-    /*
-      * method implemented from the Collections.Generic.IEnumerator interface
-      * that iterates over lines in the file
-      * 
-      * @return    IEnumerator<string>
-    */
-    public IEnumerator<string[]> GetEnumerator() {
-      StreamReader streamReader = createFileStream();
-      
-      string line;
-      while ((line = streamReader.ReadLine()) != null) {
-        yield return parseLine(line);
-      }
-    }
-
 
     /*
       * creates a stream reader to read the file
@@ -70,6 +44,32 @@ namespace CSharpTest {
     private string[] parseLine(string line) {
       string[] parsedLine = line.Split(":");
       return parsedLine;
+    }
+
+
+    /*
+      * wrapper around this classes GetEnumerator class
+      *
+      * @return    IEnumerator<string>
+    */
+    System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator() {
+      return this.GetEnumerator();
+    }
+
+
+    /*
+      * method implemented from the Collections.Generic.IEnumerator interface
+      * that iterates over lines in the file
+      * 
+      * @return    IEnumerator<string>
+    */
+    public IEnumerator<string[]> GetEnumerator() {
+      StreamReader streamReader = createFileStream();
+      
+      string line;
+      while ((line = streamReader.ReadLine()) != null) {
+        yield return parseLine(line);
+      }
     }
   }  
 }

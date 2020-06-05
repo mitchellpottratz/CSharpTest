@@ -11,9 +11,12 @@ namespace CSharpTest {
 
   class Program {
 
-    static private string FILE_PATH = "./data/commands.txt";
+    static private string DEFAULT_FILE_PATH = "./data/commands.txt";
+    static private string FILE_PATH;
 
     static void Main(string[] args) {
+      Program.determineFilePath(args);
+
       LinkedList list = new LinkedList();
       FileParser fileParser = new FileParser(FILE_PATH);
 
@@ -25,6 +28,20 @@ namespace CSharpTest {
       }
 
       list.display();
+    }
+
+
+    /*
+      * uses the file path from command line if specified otherwise uses default file path
+      *
+      * @param  args  string array of command the command line arguements
+    */
+    static private void determineFilePath(string[] args) {
+      if (args.Length > 0) {
+        FILE_PATH = args[0];
+      } else {
+        FILE_PATH = DEFAULT_FILE_PATH;
+      }
     }
 
     /*

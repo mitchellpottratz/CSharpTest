@@ -1,5 +1,5 @@
 # CSharpTest
-Mitchell Pottatz
+Mitchell Pottratz
 
 # Run 
 - dotnet run

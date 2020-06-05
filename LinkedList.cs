@@ -1,4 +1,5 @@
 using System;
+using System.Text;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -78,6 +79,40 @@ namespace CSharpTest {
 
 
     /*
+      * prints out each node in the list
+    */
+    public void display() {
+      int nodeCounter = 1;
+      Node nodeToCheck = firstNode;
+
+      while (nodeToCheck != null) {
+        StringBuilder nodeString = buildNodeString(nodeToCheck, nodeCounter);
+        Console.WriteLine(nodeString);
+        nodeToCheck = nodeToCheck.getNext();  
+        nodeCounter++;
+      }  
+    }
+
+
+    /*
+      * prints nodes in the format: "Node<count>:<value>"
+      *
+      * @param  node         the Node to format to a string
+      * @param  nodeCounter  the count of the current node in the list
+      *
+      * @return              node converted to a string in "Node<count>:<value>" format
+      * 
+    */
+    private StringBuilder buildNodeString(Node node, int nodeCounter) {
+      StringBuilder nodeString = new StringBuilder("Node", 9);
+      nodeString.Append(Convert.ToString(nodeCounter));
+      nodeString.Append(":");
+      nodeString.Append(Convert.ToString(node.getData()));
+      return nodeString;
+    }
+
+
+    /*
       * calls the GetEnumerated method from the generic IEnumerable interface
       *
       * @return    IEnumerator<Node>
@@ -98,19 +133,6 @@ namespace CSharpTest {
       while (iteratorNode != null) {
         yield return iteratorNode;
         iteratorNode = iteratorNode.getNext();
-      }  
-    }
-
-
-    /*
-      * prints out each node in the list
-    */
-    public void display() {
-      Node nodeToCheck = firstNode;
-
-      while (nodeToCheck != null) {
-        Console.WriteLine(nodeToCheck);
-        nodeToCheck = nodeToCheck.getNext();  
       }  
     }
 

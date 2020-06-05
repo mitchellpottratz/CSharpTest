@@ -20,6 +20,7 @@ namespace CSharpTest {
       LinkedList list = new LinkedList();
       FileParser fileParser = new FileParser(FILE_PATH);
 
+      // iterates through each string in the file
       foreach (string[] parsedLine in fileParser) {
         char command = Convert.ToChar(parsedLine[0]);
         int data = Convert.ToInt32(parsedLine[1]);
@@ -27,12 +28,13 @@ namespace CSharpTest {
         Program.determineListAction(list, command, data);
       }
 
+      Console.WriteLine("\n----- RESULTS -----");  
       list.display();
     }
 
 
     /*
-      * uses the file path from command line if specified otherwise uses default file path
+      * uses the file path from command line if specified otherwise uses DEFAULT_FILE_PATH
       *
       * @param  args  string array of command the command line arguements
     */

@@ -14,7 +14,6 @@ namespace CSharpTest {
   public class LinkedList : IEnumerable<Node> {
     private int size = 0;
     private Node firstNode;
-    private Node currentNode; 
 
 
     /*
@@ -23,13 +22,21 @@ namespace CSharpTest {
       * @param  newNode   the Node to append       
     */
     public void append(Node newNode) {
+      Node currentNode = firstNode;
+
       if (isEmpty()) {
-        newNode.setNext(null);
         setFirstNode(newNode);
+
       } else {
-        currentNode.setNext(newNode);
+        // traverses to the end of the list to find the last node
+        while (currentNode.getNext() != null) {
+          currentNode = currentNode.getNext();
+        }
+
+        // adds the new node to the end of the list
+        currentNode.setNext(newNode);  
       }
-      setCurrentNode(newNode); 
+
       incrementSize();
     }   
 
@@ -53,6 +60,8 @@ namespace CSharpTest {
           } else {
             previousNode.setNext(nodeToCheck.getNext());     
           }
+
+          decrementSize();
           return;
         }
 
@@ -76,10 +85,18 @@ namespace CSharpTest {
 
 
     /*
-      * increments the size attribute by 1
+      * increments the size attribute
     */
     private void incrementSize() {
       size++;
+    }
+
+
+    /*
+      * decrements the size attribute 
+    */
+    private void decrementSize() {
+      size--;
     }
 
 
@@ -139,11 +156,6 @@ namespace CSharpTest {
 
     public int getSize() {
       return size;
-    }
-
-
-    private void setCurrentNode(Node currentNode) {
-      this.currentNode = currentNode;
     }
 
   }

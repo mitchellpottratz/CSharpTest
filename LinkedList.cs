@@ -44,11 +44,10 @@ namespace CSharpTest {
           // removing the firstNode is performed differently 
           if (nodeToCheck == firstNode) {
             setFirstNode(nodeToCheck.getNext());
-            return;
+          } else {
+            previousNode.setNext(nodeToCheck.getNext());     
           }
-
-          previousNode.setNext(nodeToCheck.getNext()); 
-          return; 
+          return;
         }
 
         previousNode = nodeToCheck;

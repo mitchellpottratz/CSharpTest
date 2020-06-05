@@ -11,11 +11,10 @@ namespace CSharpTest {
       private int data;
 
       // pointer to next node in the list
-      private Node next; 
+      private Node next = null; 
 
-      public Node(int data, Node next) {
+      public Node(int data) {
         this.data = data;
-        this.next = next;
       }
 
       /*

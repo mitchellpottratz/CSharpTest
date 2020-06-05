@@ -1,32 +1,36 @@
 ﻿using System;
+using System.Collections.Generic;
+
 
 namespace CSharpTest {
 
   class Program {
+
+    static private string FILE_PATH = "./data/commands.txt";
+
     static void Main(string[] args) {
-      Node node1 = new Node(1, null);
-      Node node2 = new Node(2, null);
-      Node node3 = new Node(3, null);
-      Node node4 = new Node(4, null);
-      Node node5 = new Node(5, null);
-      Node node6 = new Node(1, null);
-
       LinkedList list = new LinkedList();
+      FileParser fileParser = new FileParser(FILE_PATH);
 
-      list.append(node1);
-      list.append(node2);
-      list.append(node3);
-      list.append(node4);
-      list.append(node5);
-      list.append(node6);
+      foreach (string[] parsedLine in fileParser) {
 
-      list.remove(1);
-      list.remove(4);
-      list.remove(5);
+        char command = Convert.ToChar(parsedLine[0]);
+        int data = Convert.ToInt32(parsedLine[1]);
 
-      foreach (Node node in list) {
-        Console.WriteLine(node);
+        if (command == 'i') {
+          Node newNode = new Node(data); 
+          list.append(newNode); 
+          Console.WriteLine("Wrote value " + data);
+        } else if (command == 'd') {
+          list.remove(data);
+          Console.WriteLine("Removed value " + data);
+        }  else {
+          Console.WriteLine("Error determining the command");
+        }
       }
+
+
+
     }
   }
 }

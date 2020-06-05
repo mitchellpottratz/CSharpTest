@@ -4,6 +4,11 @@ using System.Collections;
 using System.Collections.Generic;
 
 
+/*
+  * The LinkedList class represents a single linked list of Nodes
+*/
+
+
 namespace CSharpTest {
 
   public class LinkedList : IEnumerable<Node> {
@@ -86,29 +91,12 @@ namespace CSharpTest {
       Node nodeToCheck = firstNode;
 
       while (nodeToCheck != null) {
-        StringBuilder nodeString = buildNodeString(nodeToCheck, nodeCounter);
+        StringBuilder nodeString = nodeToCheck.buildNodeString(nodeCounter);
         Console.WriteLine(nodeString);
+
         nodeToCheck = nodeToCheck.getNext();  
         nodeCounter++;
       }  
-    }
-
-
-    /*
-      * prints nodes in the format: "Node<count>:<value>"
-      *
-      * @param  node         the Node to format to a string
-      * @param  nodeCounter  the count of the current node in the list
-      *
-      * @return              node converted to a string in "Node<count>:<value>" format
-      * 
-    */
-    private StringBuilder buildNodeString(Node node, int nodeCounter) {
-      StringBuilder nodeString = new StringBuilder("Node", 9);
-      nodeString.Append(Convert.ToString(nodeCounter));
-      nodeString.Append(":");
-      nodeString.Append(Convert.ToString(node.getData()));
-      return nodeString;
     }
 
 

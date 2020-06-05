@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 
 
+/*
+  * Main entry point of the program
+*/
+
+
 namespace CSharpTest {
 
   class Program {

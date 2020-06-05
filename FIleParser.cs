@@ -46,19 +46,6 @@ namespace CSharpTest {
 
 
     /*
-      * splits a string into an array containing the command and data
-      *
-      * @param  line  string to parse into an array 
-      *
-      * @return       string array containing command and data
-    */
-    private string[] parseLine(string line) {
-      string[] parsedLine = line.Split(":");
-      return parsedLine;
-    }
-
-
-    /*
       * creates a stream reader to read the file
       * uses FileStream and BufferedStream as its one of the most 
       * efficient ways to read a file according to...
@@ -71,11 +58,18 @@ namespace CSharpTest {
       BufferedStream bufferedStream = new BufferedStream(fileStream);
       return new StreamReader(bufferedStream);
     }
-
-
   
 
-
-  }
-  
+    /*
+      * splits a string into an array containing the command and data
+      *
+      * @param  line  string to parse into an array 
+      *
+      * @return       string array containing command and data
+    */
+    private string[] parseLine(string line) {
+      string[] parsedLine = line.Split(":");
+      return parsedLine;
+    }
+  }  
 }

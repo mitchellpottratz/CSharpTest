@@ -102,6 +102,19 @@ namespace CSharpTest {
     }
 
 
+    /*
+      * prints out each node in the list
+    */
+    public void display() {
+      Node nodeToCheck = firstNode;
+
+      while (nodeToCheck != null) {
+        Console.WriteLine(nodeToCheck);
+        nodeToCheck = nodeToCheck.getNext();  
+      }  
+    }
+
+
     /* --- getters and setters --- */
 
     private void setFirstNode(Node firstNode) {

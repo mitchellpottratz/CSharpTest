@@ -1,5 +1,9 @@
 # CSharpTest
-{Your Name Here}
+Mitchell Pottatz
+
+# Run 
+- dotnet run
+- dotnet run <path_to_file>
 
 # Purpose
 To quickly test a candidate’s ability to program in C#. This exercise will require a basic understanding of the linked list data structure, algorithms, recursion, and/or control loops in C#
@@ -48,4 +52,7 @@ NOTE: The node with the value of 8 was deleted and should not exist in the list 
 See links below for some resources on what a linked list is and how to implement one.
 
 https://www.geeksforgeeks.org/data-structures/linked-list/
+
+
+
 
